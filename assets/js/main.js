@@ -1,56 +1,92 @@
 'use strict';
 
-// задание 1
+// 1
 
-let a = +prompt('Введите число a')
-let b = +prompt('Введите число b')
-for(let i =a; i<=b; i++){
-    if(i %2 !== 0) continue;
-    alert(i);
-} 
-
-
-// задание 2
-
-let i = 0;
-while(i<3){
-    alert(`number ${i}`); i++
-}
-
-
-// Задание 3
-
-let num = +prompt('Введите число больше 10');
-for(; num<10;) {
-    let num = +prompt('Введите число еще раз'); if (num>10) break
-}
-
-// Задание 4
-
-function min(a, b){
-    if (a<b)
-        alert(a)
-    else alert(b)
-} min(12,4)
-
-
-// Задание 5
-
-let ask = (question,yes, no)=>{
-     if (confirm(question)) yes()
-    else no()
+const salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
 };
 
-  ask(
-    "Вы согласны?",
-    function() { alert("Вы согласились."); },
-    function() { alert("Вы отменили выполнение."); }
-  );
+let sum = salaries.John + salaries.Ann + salaries.Pete;
+
+console.log(sum);
+
+// 2
+
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+function multiplyNumeric() {
+    menu.width  *= 2;
+    menu.height *=2;
+
+}
+multiplyNumeric();
+console.log(menu);
+
+
+// 3
+
+const calculator = {
+   
+    read() {
+      this.a = +prompt("Введите первое число:");
+      this.b = +prompt("Введите второе число:");
+    },
+  
+  
+    sum() {
+      return this.a + this.b;
+    },
+  
+  
+    mul() {
+      return this.a * this.b;
+    }
+  };
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul()) ;
+
+
+//  4
+
+let str = "$120";
+
+function extractCurrencyValue(str) {
+    return +str.slice(1);
+}
+console.log(extractCurrencyValue(str));
   
 
-// Задание 6
-checkAge (+prompt('Склько вам лет'))
+// 5
 
-function checkAge(age) {
-    (age >= 18) ?  true :  confirm('Родители разрешили?')
-}
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let users = [ vasya, petya, masha ];
+
+let names = users.map(user => user.name);
+
+alert( names ); 
+
+ 
+// 6
+
+
+function getAverageAge(users) {
+    let totalAge = 0;
+  
+    for (const user of users) {
+      totalAge += user.age;
+    }
+  let kk =  totalAge / users.length
+    alert(kk)
+  }
+
+  getAverageAge(users)
